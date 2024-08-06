@@ -1,25 +1,27 @@
 import { collection, db, addDoc, serverTimestamp, doc, onSnapshot, getDocs } from "./firebase.js";
 const addProductForm = document.querySelector("#addProductForm")
 const productAddButton = document.querySelector("#addButton")
+const productType = document.querySelector(".productType")
 
 
 const allProducts = document.querySelector(".printer")
 
 
-const querySnapshot = await getDocs(collection(db, "products"));
-querySnapshot.forEach((doc) => {
-    console.log(doc);
-    const stampTime = doc._document.data.value.mapValue.fields.createdAt.timestampValue
-    console.log(doc._document.data.value.mapValue.fields.productName.stringValue);
-});
+// const querySnapshot = await getDocs(collection(db, "products"));
+// querySnapshot.forEach((doc) => {
+//     console.log(doc);
+//     const stampTime = doc._document.data.value.mapValue.fields.createdAt.timestampValue
+//     console.log(doc._document.data.value.mapValue.fields.productName.stringValue);
+// });
+// console.log(window.location);
 
 
 addProductForm.addEventListener("submit", async (e) => {
     e.preventDefault()
-
     // Import inputs by className
+
     const productName = document.querySelector(".productName")
-    const productType = document.querySelector(".productType")
+    // console.log("🚀 ~ addProductForm.addEventListener ~ productType:", productType)
     const productPrice = document.querySelector(".productPrice")
 
     const myCollectionStoreReferance = collection(db, "products")
@@ -33,11 +35,13 @@ addProductForm.addEventListener("submit", async (e) => {
     addProductForm.reset();
     try {
         const docRef = await addDoc(myCollectionStoreReferance, products);
-        console.log("Document written with ID: ", myCollectionStoreReferance.id);
-        console.log("🚀 ~ addProductForm.addEventListener ~ docRef:", docRef.id)
+        // console.log("Document written with ID: ", myCollectionStoreReferance.id);
+        // console.log("🚀 ~ addProductForm.addEventListener ~ docRef:", docRef.id)
         productAddButton.disabled = false
+        window.location ="../pages/allProducts.html"
     } catch (e) {
         console.error("Error adding document: ", e);
     }
 })
 
+    export {productType}

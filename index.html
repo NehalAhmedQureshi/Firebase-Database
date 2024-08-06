@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase Database</title>
+    <!-- custom styling -->
+     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    
-    <h3>---Firebase Database---</h3>
+      
+    <!-- <h3>---Firebase Database---</h3> -->
 
     <form id="addProductForm">
         <h2>Add Product</h2>
         <input type="text" class="productName" placeholder="product name" required><br>
-        <input type="text" class="productType" placeholder="product type" required><br>
+        <select name="product" class="productType" id="" required>
+            <option value="">Select Your Product Type</option>
+            <option value="">Clothes</option>
+            <option value="">Phone Accessories</option>
+            <option value="">Kitchen Accessories</option>
+            <option value="">Electronics</option>
+            <option value="">Mobile Devices</option>
+            <option value="">Cables</option>
+            <option value="">House Hold Items</option>
+            <option value="">Food</option>
+            <option value="">Books</option>
+        </select><br>
         <input type="number" class="productPrice" placeholder="product price" required><br>
         <!-- <input type="datetime-local" class="productAddTime" placeholder="Time"><br> -->
-        <button id="addButton" type="submit">Add</button>
+        <button id="addButton" type="submit">Create</button>
     </form>
     <div class="printer"></div>
 

@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
 import { getFirestore, collection, addDoc, serverTimestamp,doc,onSnapshot,getDocs } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+import { productType } from "./app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,6 +26,6 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 // Export functions to another file of javascript
-export { db, collection, addDoc, serverTimestamp,doc,onSnapshot,getDocs }
+export { db, collection, addDoc, serverTimestamp,doc,onSnapshot,getDocs,productType }
 
 
